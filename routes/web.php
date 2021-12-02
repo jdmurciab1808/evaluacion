@@ -17,11 +17,15 @@ use App\Http\Controllers\EmpleadoController;
 
 
 
-// Route::get('/', function () {
-//     return view('auth.login');
-// });
+Route::get('/', function () {
+    return view('auth.login');
+});
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+
 // Rutas Usuario
 Auth::routes();
 
@@ -33,8 +37,9 @@ Route::resource('mejoramiento', 'App\Http\Controllers\MejoramientoController')->
 Route::post('/createEvaluacion', 'App\Http\Controllers\EmpleadoController@store')->name('empleado.crear');
 
 Route::view('/empleados', 'empleados')->name('empleados');
-
+// Rutas usuarios autenticados
 Route::middleware(['auth'])->group(function () {
+    
     // Route::post('/empleados', [App\Http\Controllers\EmpleadosController::class, 'store'])->name('empleados.store');
 });
 // Route::get('/register', function (){
