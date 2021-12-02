@@ -23,7 +23,8 @@
 </head>
 <body>
     <div id="app" class="h-100">
-        {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        @auth
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'UAEOS') }}
@@ -75,8 +76,8 @@
                     </ul>
                 </div>
             </div>
-        </nav> --}}
-
+        </nav>
+        @endauth
         <main class="h-100">
             @yield('content')
         </main>

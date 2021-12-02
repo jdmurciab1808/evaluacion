@@ -1,13 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
+{{-- estatus --}}
+@if (session('status'))
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        {{ session('status') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+        </button>
+    </div>    
+@endif
+
 <div class="h-100 d-flex justify-content-center align-items-center container-img-auth">
     <div class="backdrop-filter-blue">
         <div class="card login-container">
             <div class="card-header">{{ __('Iniciar Sesión') }}</div>
             
             <div class="card-body">
-            <img class="img-uaeos-login" src="{{ asset('img/uaeos-logo.png') }}" alt="">
+            <img class="img-uaeos-login" src="{{ asset('img/uaeos-logo.png') }}" alt="Imagen Logo UAEOS">
             <form method="POST" action="{{ route('login') }}">
                 @csrf
 
@@ -62,6 +72,7 @@
                                 {{ __('Olvido su Contraseña ?') }}
                             </a>
                         @endif
+                        
                     </div>
                 </div>
             </form>
@@ -70,3 +81,6 @@
 </div>
 </div>
 @endsection
+
+
+

@@ -15,23 +15,28 @@ use App\Http\Controllers\EmpleadoController;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
-// Rutas Atenticacion
-Auth::routes();
-// Rutas Usuario
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::post('/createEvaluacion','App\Http\Controllers\EmpleadoController@store')->name('empleado.crear');
+
+// Route::get('/', function () {
+//     return view('auth.login');
+// });
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Rutas Usuario
+Auth::routes();
+
+Route::resource('admin', 'App\Http\Controllers\AdminController')->names('admins');
+Route::resource('evaluacion', 'App\Http\Controllers\EvaluacionController')->names('evaluacion');
+Route::resource('componentes', 'App\Http\Controllers\ComponentesController')->names('componentes');
+Route::resource('mejoramiento', 'App\Http\Controllers\MejoramientoController')->names('mejoramiento');
+
+Route::post('/createEvaluacion', 'App\Http\Controllers\EmpleadoController@store')->name('empleado.crear');
+
+Route::view('/empleados', 'empleados')->name('empleados');
 
 Route::middleware(['auth'])->group(function () {
-    Route::view('/empleados', 'empleados')->name('empleados');
     // Route::post('/empleados', [App\Http\Controllers\EmpleadosController::class, 'store'])->name('empleados.store');
 });
 // Route::get('/register', function (){
 //     return view('auth.register');
 // });
-
-
-

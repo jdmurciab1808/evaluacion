@@ -5,7 +5,7 @@
 <div class="img-uaeos">
   @section('content')
   <img src="{{ asset('img/uaeos-logo.png') }}" alt="">
-  <h3 class="title-home">Seguimiento cumplimiento de funciones  esenciales a empleados vinculados mediante 
+  <h3 class="title-home">Seguimiento cumplimiento de funciones  esenciales a empleados vinculados mediante
     NOMBRAMIENTO PROVISIONAL </h3>
 </div>
 <!-- multistep form -->
@@ -52,7 +52,7 @@
             <option value="9">Secretaria Ejecutiva</option>
             <option value="10">Secretario</option>
             <option value="11">Tecnico Administrativo</option>
-          </select>               
+          </select>
         </div>
         <div class="d-flex align-items-center">
           <select class="browser-default custom-select mg-lg-4">
@@ -74,7 +74,7 @@
             <option value="Grupo de Atención Especial a Poblaciones">Grupo de Atención Especial a Poblaciones</option>
             <option value="Grupo de Emprendimiento y Productividad">Grupo de Emprendimiento y Productividad</option>
             <option value="Grupo de Desarrollo Solidario">Grupo de Desarrollo Solidario</option>
-          </select>               
+          </select>
         </div>
       </div>
 
@@ -108,7 +108,7 @@
             <option value="9">Secretaria Ejecutiva</option>
             <option value="10">Secretario</option>
             <option value="11">Tecnico Administrativo</option>
-          </select>               
+          </select>
         </div>
         <div class="d-flex align-items-center">
           <select class="browser-default custom-select mg-lg-4">
@@ -130,10 +130,10 @@
             <option value="Grupo de Atención Especial a Poblaciones">Grupo de Atención Especial a Poblaciones</option>
             <option value="Grupo de Emprendimiento y Productividad">Grupo de Emprendimiento y Productividad</option>
             <option value="Grupo de Desarrollo Solidario">Grupo de Desarrollo Solidario</option>
-          </select>               
+          </select>
         </div>
       </div>
-      
+
       <div class="col-md-4 col-sm-12">
         <h2 class="fs-title"><b>1.3 SEGUNDO EVALUADOR</b></h2>
         <input type="text" name="nameCompleto" placeholder="Nombre Completo" />
@@ -164,7 +164,7 @@
             <option value="9">Secretaria Ejecutiva</option>
             <option value="10">Secretario</option>
             <option value="11">Tecnico Administrativo</option>
-          </select>               
+          </select>
         </div>
         <div class="d-flex align-items-center">
           <select class="browser-default custom-select mg-lg-4">
@@ -613,8 +613,8 @@
                   class="form-control w-auto border-top-0 border-right-0 border-left-0 border-blue rounded-0 colorF" />
             </div>
           </div>
-        </div>  
-      </div>   
+        </div>
+      </div>
       <h2 class="fs-title mt-8"><b>OBSERVACIONES DEL EVALUADO</b></h2>
       <div class="md-form mt-3">
         <i class="fas fa-pencil-alt prefix"></i>

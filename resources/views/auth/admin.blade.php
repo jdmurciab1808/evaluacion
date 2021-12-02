@@ -5,10 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">{{ __('Registro') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('admins.store') }}">
                         @csrf
                         {{-- Cedula --}}
                         <div class="form-group row">
@@ -99,7 +99,7 @@
                         <div class="form-group row">
                             <label for="dependencia" class="col-md-4 col-form-label text-md-right">Dependencia</label>
                             <div class="col-md-6">
-                                <select class="browser-default custom-select mg-lg-4" id="dependecia" name="dependencia" >
+                                <select class="browser-default custom-select mg-lg-4" name="dependencia" id="dependecia">
                                     <option selected>Seleccione su Dependencia</option>
                                     <option value="Grupo de Educación e Investigación">Grupo de Educación e
                                         Investigación</option>
@@ -146,18 +146,7 @@
                                 </select>
                             </div>
                         </div>
-                        {{-- Jefe Inmediato --}}
-                        <div class="form-group row">
-                            <label for="admin" class="col-md-4 col-form-label text-md-right">Jefe Inmediato</label>
-                            <div class="col-md-6">
-                        <select class="browser-default custom-select mg-lg-4" name="admins_cc" id="admins_cc">
-                            <option selected>Seleccione su jefe inmediato</option>
-                            @foreach ($admins as $admin)
-                                <option value="{{ $admin->cc }}">{{ $admin->name }}</option>
-                            @endforeach                          
-                        </select>
-                    </div>
-                </div>
+                        
                         {{-- Boton --}}
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
