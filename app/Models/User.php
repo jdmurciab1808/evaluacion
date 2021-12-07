@@ -27,6 +27,7 @@ class User extends Authenticatable
         'vacancia',
         'admins_cc',
     ];
+    protected $primaryKey = 'name';
     // protected $guarded = [];
     /**
      * The attributes that should be hidden for serialization.
