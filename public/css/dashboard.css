@@ -98,3 +98,23 @@ body {
   border-color: transparent;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
 }
+
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown-container ul{
+  position: absolute;
+  max-height: 0px;
+  overflow: hidden;
+  transition: all 1s;
+}
+.dropdowm-container:hover ul {
+  max-height: 400px;
+}
+
+
+
+
+
+
