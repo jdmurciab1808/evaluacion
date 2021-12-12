@@ -23,7 +23,7 @@ class EvaluacionController extends Controller
      */
     public function create()
     {
-        //
+        return view('evaluacion.create');
     }
 
     /**
