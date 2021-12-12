@@ -16,57 +16,42 @@
             </button>
         </div>
     </div>
+    {{-- Formulario --}}
     <form class="row g-3 needs-validation" novalidate>
         <div class="col-md-4">
-            <label for="validationCustom01" class="form-label">First name</label>
-            <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
-            <div class="valid-feedback">
-                Looks good!
+            <label for="validationCustom03" class="form-label">Firma</label>
+            {{-- <input type="text" class="form-control" id="validationCustom03" required> --}}
+            <div class="input-group mb-3">
+                <input type="file" class="form-control" id="validationCustom03">
             </div>
-        </div>
-        <div class="col-md-4">
-            <label for="validationCustom02" class="form-label">Last name</label>
-            <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
-            <div class="valid-feedback">
-                Looks good!
-            </div>
-        </div>
-        <div class="col-md-4">
-            <label for="validationCustomUsername" class="form-label">Username</label>
-            <div class="input-group">
-                <span class="input-group-text" id="inputGroupPrepend">@</span>
-                <input type="text" class="form-control" id="validationCustomUsername"
-                    aria-describedby="inputGroupPrepend" required>
-                <div class="invalid-feedback">
-                    Please choose a username.
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <label for="validationCustom03" class="form-label">City</label>
-            <input type="text" class="form-control" id="validationCustom03" required>
             <div class="invalid-feedback">
-                Please provide a valid city.
+                Por favor adjunte archivo
             </div>
         </div>
-        <div class="col-md-3">
-            <label for="validationCustom04" class="form-label">State</label>
+        <div class="col-md-4">
+            <label for="validationCustom04" class="form-label">Ciudad</label>
             <select class="form-select" id="validationCustom04" required>
-                <option selected disabled value="">Choose...</option>
-                <option>...</option>
+                <option selected disabled value="">Seleccione una ciudad</option>
+                <option>Bogotá</option>
             </select>
             <div class="invalid-feedback">
                 Please select a valid state.
             </div>
         </div>
-        <div class="col-md-3">
-            <label for="validationCustom05" class="form-label">Zip</label>
-            <input type="text" class="form-control" id="validationCustom05" required>
+        <div class="col-md-4">
+            <label for="validationCustom05" class="form-label">Segundo evaluador</label>
+            <select class="form-select" id="validationCustom05" required>
+                <option selected disabled value="">Seleccione su segundo evaluador</option>
+                @foreach ($admins as $admin)
+                <option value="{{ $admin->cc }}">{{ $admin->name }}</option>
+                @endforeach
+            </select>
             <div class="invalid-feedback">
                 Please provide a valid zip.
             </div>
         </div>
-        <div class="col-12">
+        {{-- Condiciones --}}
+        {{-- <div class="col-12">
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
                 <label class="form-check-label" for="invalidCheck">
@@ -76,9 +61,9 @@
                     You must agree before submitting.
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="col-12">
-            <button class="btn btn-primary" type="submit">Submit form</button>
+            <button class="btn btn-primary" type="submit">Crear Evaluación</button>
         </div>
     </form>
 </main>

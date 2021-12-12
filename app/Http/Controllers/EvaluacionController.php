@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Admin;
+
 
 class EvaluacionController extends Controller
 {
@@ -23,7 +25,9 @@ class EvaluacionController extends Controller
      */
     public function create()
     {
-        return view('evaluacion.create');
+        return view('evaluacion.create', [
+            'admins' => Admin::all(),
+        ]);
     }
 
     /**

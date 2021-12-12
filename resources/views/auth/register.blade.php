@@ -67,7 +67,8 @@
                         </div>
                         {{-- Confirmación Contraseña --}}
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirmar Contraseña') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirmar
+                                Contraseña') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control"
@@ -79,7 +80,8 @@
                             <label for="cargo" class="col-md-4 col-form-label text-md-right">Cargo</label>
 
                             <div class="col-md-6">
-                                <select class="browser-default custom-select mg-lg-4 select-cargo" id="cargo" name="cargo">
+                                <select class="browser-default custom-select mg-lg-4 select-cargo" id="cargo"
+                                    name="cargo">
                                     <option selected>Seleccione su Cargo</option>
                                     <option value="Asesor">Asesor</option>
                                     <option value="Auxiliar Administrativo">Auxiliar Administrativo</option>
@@ -99,7 +101,8 @@
                         <div class="form-group row">
                             <label for="dependencia" class="col-md-4 col-form-label text-md-right">Dependencia</label>
                             <div class="col-md-6">
-                                <select class="browser-default custom-select mg-lg-4" id="dependecia" name="dependencia" >
+                                <select class="browser-default custom-select mg-lg-4" id="dependecia"
+                                    name="dependencia">
                                     <option selected>Seleccione su Dependencia</option>
                                     <option value="Grupo de Educación e Investigación">Grupo de Educación e
                                         Investigación</option>
@@ -150,14 +153,14 @@
                         <div class="form-group row">
                             <label for="admin" class="col-md-4 col-form-label text-md-right">Jefe Inmediato</label>
                             <div class="col-md-6">
-                        <select class="browser-default custom-select mg-lg-4" name="admins_cc" id="admins_cc">
-                            <option selected>Seleccione su jefe inmediato</option>
-                            @foreach ($admins as $admin)
-                                <option value="{{ $admin->cc }}">{{ $admin->name }}</option>
-                            @endforeach                          
-                        </select>
-                    </div>
-                </div>
+                                <select class="browser-default custom-select mg-lg-4" name="admins_cc" id="admins_cc">
+                                    <option selected>Seleccione su jefe inmediato</option>
+                                    @foreach ($admins as $admin)
+                                    <option value="{{ $admin->cc }}">{{ $admin->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
                         {{-- Boton --}}
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
