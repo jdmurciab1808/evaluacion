@@ -30,16 +30,16 @@ Route::get('/dashboard', function () {
 Auth::routes();
 
 Route::resource('admin', 'App\Http\Controllers\AdminController')->names('admins');
-Route::resource('evaluacion', 'App\Http\Controllers\EvaluacionController')->names('evaluacion');
-Route::resource('componentes', 'App\Http\Controllers\ComponentesController')->names('componentes');
-Route::resource('mejoramiento', 'App\Http\Controllers\MejoramientoController')->names('mejoramiento');
+Route::resource('evaluation', 'App\Http\Controllers\EvaluationController')->names('evaluations')->parameters(['evaluation' => 'evaluation']);
+// Route::resource('componentes', 'App\Http\Controllers\ComponentController')->names('componentes');
+// Route::resource('mejoramiento', 'App\Http\Controllers\ImprovementController')->names('mejoramiento');
 
 Route::post('/createEvaluacion', 'App\Http\Controllers\EmpleadoController@store')->name('empleado.crear');
 
 Route::view('/empleados', 'empleados')->name('empleados');
 // Rutas usuarios autenticados
 Route::middleware(['auth'])->group(function () {
-    
+
     // Route::post('/empleados', [App\Http\Controllers\EmpleadosController::class, 'store'])->name('empleados.store');
 });
 // Route::get('/register', function (){

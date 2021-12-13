@@ -16,134 +16,36 @@
             </button>
         </div>
     </div>
-
-    <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
-
-    <h2>Section title</h2>
     <div class="table-responsive">
-        <table class="table table-striped table-sm">
-            <thead>
+        <table id="userTable" class="table table-striped text-center" style="width:100%">
+            <thead class=" text-primary">
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Header</th>
-                    <th scope="col">Header</th>
-                    <th scope="col">Header</th>
-                    <th scope="col">Header</th>
+                    <th>Fecha Incio</th>
+                    <th>Estado</th>
+                    <th>Firma Evaluado</th>
+                    <th>Firma Evaluador</th>
+                    <th>Firma Segundo Evaluador</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
+                @forelse ($evaluaciones as $evaluacion)
                 <tr>
-                    <td>1,001</td>
-                    <td>random</td>
-                    <td>data</td>
-                    <td>placeholder</td>
-                    <td>text</td>
+                    <td>{{ $evaluacion->fechaIncio }}</td>
+                    <td>{{ $evaluacion->estado }}</td>
+                    <td>{{ $evaluacion->firmaEvaluado }}</td>
+                    <td>{{ $evaluacion->firmaEvaluador }}</td>
+                    <td>{{ $evaluacion->firmaSegundoEvaluado }}</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                            <button type="button" class="btn btn-danger">Borrar</button>
+                            <button type="button" class="btn btn-warning">Editar</button>
+                            <button type="button" class="btn btn-success">Componentes</button>
+                        </div>
+                    </td>
                 </tr>
-                <tr>
-                    <td>1,002</td>
-                    <td>placeholder</td>
-                    <td>irrelevant</td>
-                    <td>visual</td>
-                    <td>layout</td>
-                </tr>
-                <tr>
-                    <td>1,003</td>
-                    <td>data</td>
-                    <td>rich</td>
-                    <td>dashboard</td>
-                    <td>tabular</td>
-                </tr>
-                <tr>
-                    <td>1,003</td>
-                    <td>information</td>
-                    <td>placeholder</td>
-                    <td>illustrative</td>
-                    <td>data</td>
-                </tr>
-                <tr>
-                    <td>1,004</td>
-                    <td>text</td>
-                    <td>random</td>
-                    <td>layout</td>
-                    <td>dashboard</td>
-                </tr>
-                <tr>
-                    <td>1,005</td>
-                    <td>dashboard</td>
-                    <td>irrelevant</td>
-                    <td>text</td>
-                    <td>placeholder</td>
-                </tr>
-                <tr>
-                    <td>1,006</td>
-                    <td>dashboard</td>
-                    <td>illustrative</td>
-                    <td>rich</td>
-                    <td>data</td>
-                </tr>
-                <tr>
-                    <td>1,007</td>
-                    <td>placeholder</td>
-                    <td>tabular</td>
-                    <td>information</td>
-                    <td>irrelevant</td>
-                </tr>
-                <tr>
-                    <td>1,008</td>
-                    <td>random</td>
-                    <td>data</td>
-                    <td>placeholder</td>
-                    <td>text</td>
-                </tr>
-                <tr>
-                    <td>1,009</td>
-                    <td>placeholder</td>
-                    <td>irrelevant</td>
-                    <td>visual</td>
-                    <td>layout</td>
-                </tr>
-                <tr>
-                    <td>1,010</td>
-                    <td>data</td>
-                    <td>rich</td>
-                    <td>dashboard</td>
-                    <td>tabular</td>
-                </tr>
-                <tr>
-                    <td>1,011</td>
-                    <td>information</td>
-                    <td>placeholder</td>
-                    <td>illustrative</td>
-                    <td>data</td>
-                </tr>
-                <tr>
-                    <td>1,012</td>
-                    <td>text</td>
-                    <td>placeholder</td>
-                    <td>layout</td>
-                    <td>dashboard</td>
-                </tr>
-                <tr>
-                    <td>1,013</td>
-                    <td>dashboard</td>
-                    <td>irrelevant</td>
-                    <td>text</td>
-                    <td>visual</td>
-                </tr>
-                <tr>
-                    <td>1,014</td>
-                    <td>dashboard</td>
-                    <td>illustrative</td>
-                    <td>rich</td>
-                    <td>data</td>
-                </tr>
-                <tr>
-                    <td>1,015</td>
-                    <td>random</td>
-                    <td>tabular</td>
-                    <td>information</td>
-                    <td>text</td>
-                </tr>
+                @empty
+                @endforelse
             </tbody>
         </table>
     </div>

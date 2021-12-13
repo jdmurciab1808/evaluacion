@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Models\Admin;
+use App\Models\Evaluation;
 
 
-class EvaluacionController extends Controller
+
+class EvaluationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +18,12 @@ class EvaluacionController extends Controller
      */
     public function index()
     {
-        return view('evaluacion.index');
+        // return view('evaluacion.index', [
+        //     'evaluaciones' => Evaluation::with('users')->get()
+        // ]);
+
+        $evaluaciones = Evaluation::all();
+        return $evaluaciones;
     }
 
     /**
@@ -27,6 +35,7 @@ class EvaluacionController extends Controller
     {
         return view('evaluacion.create', [
             'admins' => Admin::all(),
+
         ]);
     }
 
@@ -38,7 +47,26 @@ class EvaluacionController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        // $fecha = date('Y-m-d');
+        // return $request;
+        if ($request['firmaEvaluado'] == "on") {
+
+            $firmaEvaluado = "1";
+        } else {
+            $firmaEvaluado = "0";
+        }
+        $user_cc = $request['users_cc'];
+        Evaluation::create([
+
+            'fechaIncio' => date('Y-m-d'),
+            'estado' => 'Iniciada',
+            'firmaEvaluado' => $firmaEvaluado,
+            'ciudad' => $request['ciudad'],
+            'evaluador_dos' => $request['segundoEvaluador'],
+            'users_cc' => $request['users_cc'],
+
+        ]);
+        return redirect()->route('evaluations.show', $user_cc)->with('status', 'Se creo Evaluacion');
     }
 
     /**
@@ -49,7 +77,11 @@ class EvaluacionController extends Controller
      */
     public function show($id)
     {
-        //
+
+        return view('evaluacion.index', [
+            'admins' => Admin::all(),
+            'evaluaciones' => Evaluation::where('users_cc', $id)->with('user')->get()
+        ]);
     }
 
     /**

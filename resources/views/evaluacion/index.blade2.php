@@ -3,7 +3,7 @@
     <div class="img-uaeos">
         @section('content')
         <img src="{{ asset('img/uaeos-logo.png') }}" alt="">
-        <h2 class="title-home">COMPROMISO DE ACUERDO ENTRE EVALUADOR Y EVALUADO </h2>
+        <h2 class="title-home">COMPROMISO DE ACUERDO ENTRE EVALUADOR Y EVALUADO</h2>
     </div>
     <!-- multistep form -->
     {{-- <form action="{{ route('empleado.crear') }}" method="POST" id="msform" enctype="multipart/form-data">

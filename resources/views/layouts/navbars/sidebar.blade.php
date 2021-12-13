@@ -2,7 +2,7 @@
 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
     <div class="position-sticky pt-3">
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-            <span>{{ Auth::user()->cc }}</span>
+            <span>{{ Auth::user()->name }}</span>
             <a class="link-secondary" href="#" aria-label="Add a new report">
                 <span data-feather="plus-circle"></span>
             </a>
@@ -23,14 +23,14 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ $activePage=='crearEvaluacion' ? ' active' : '' }}"
-                    href="{{ route('evaluacion.create') }}">
+                    href="{{ route('evaluations.create') }}">
                     <span data-feather="file-text"></span>
                     Crear Evaluación
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ $activePage=='listaEvaluaciones' ? ' active' : '' }}"
-                    href="{{ route('evaluacion.index') }}">
+                    href="{{ route('evaluations.show', $evaluacion = Auth::user()->cc) }}">
                     <span data-feather="list"></span>
                     Lista de Evaluaciones
                 </a>
