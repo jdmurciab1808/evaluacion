@@ -78,6 +78,8 @@ class EvaluationController extends Controller
     public function show($id)
     {
 
+        // $evaluaciones = Evaluation::where('users_cc', $id)->with('user')->get();
+        // return $evaluaciones;
         return view('evaluacion.index', [
             'admins' => Admin::all(),
             'evaluaciones' => Evaluation::where('users_cc', $id)->with('user')->get()

@@ -1,7 +1,7 @@
 $(document).ready(function() {
     validarFormulario();
     function validarFormulario() {
-        alert("Exitoso");
+        // alert("Exitoso");
 
         ("use strict");
 

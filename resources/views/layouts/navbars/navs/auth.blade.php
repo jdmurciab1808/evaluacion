@@ -11,7 +11,7 @@
         <div class="nav-item text-nowrap">
             {{-- <a class="nav-link px-3" href="{{ route('logout') }}">Cerrar sesión.</a> --}}
             {{-- Cerrar sesión --}}
-            <a class="nav-link px-3" href="{{ route('logout') }}" onclick="event.preventDefault();
+            <a class="nav-link px-3" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
                 {{ __('Cerrar sesión.') }}
             </a>

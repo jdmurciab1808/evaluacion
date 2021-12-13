@@ -49,6 +49,9 @@
         </main>
         @endguest
     </div>
+
+
+
     {{-- Bootstrap Dashboard --}}
     <script src="{{ asset('assets/dist/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/dashboard.js') }}" defer></script>

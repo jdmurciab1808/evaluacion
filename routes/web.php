@@ -31,6 +31,7 @@ Auth::routes();
 
 Route::resource('admin', 'App\Http\Controllers\AdminController')->names('admins');
 Route::resource('evaluation', 'App\Http\Controllers\EvaluationController')->names('evaluations')->parameters(['evaluation' => 'evaluation']);
+Route::resource('components', 'App\Http\Controllers\ComponentController')->names('components')->parameters(['component' => 'component']);
 // Route::resource('componentes', 'App\Http\Controllers\ComponentController')->names('componentes');
 // Route::resource('mejoramiento', 'App\Http\Controllers\ImprovementController')->names('mejoramiento');
 

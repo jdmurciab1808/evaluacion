@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Componentes;
 use Illuminate\Http\Request;
+use App\Models\Admin;
+use App\Models\Evaluation;
 
-class ComponentesController extends Controller
+class ComponentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +26,10 @@ class ComponentesController extends Controller
      */
     public function create()
     {
-        //
+        return view('componente.create', [
+            'admins' => Admin::all(),
+
+        ]);
     }
 
     /**
@@ -35,7 +40,7 @@ class ComponentesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return  $request;
     }
 
     /**
@@ -46,7 +51,11 @@ class ComponentesController extends Controller
      */
     public function show($id)
     {
-        //
+        $evaluation = Evaluation::where('users_cc', $id)->get();
+        return view('componente.create', [
+            'admins' => Admin::all(),
+            'evaluacion' => $evaluation
+        ]);
     }
 
     /**

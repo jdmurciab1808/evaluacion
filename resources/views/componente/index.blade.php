@@ -40,8 +40,7 @@
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                             <button type="button" class="btn btn-danger">Borrar</button>
                             <button type="button" class="btn btn-warning">Editar</button>
-                            <a href="{{ route('components.show', $user_cc = Auth::user()->cc) }}" type="button"
-                                class="btn btn-success">Componentes</a>
+                            <button type="button" class="btn btn-success">Componentes</button>
                         </div>
                     </td>
                 </tr>
