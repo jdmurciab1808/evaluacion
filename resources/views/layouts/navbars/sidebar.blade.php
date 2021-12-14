@@ -30,7 +30,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ $activePage=='listaEvaluaciones' ? ' active' : '' }}"
-                    href="{{ route('evaluations.show', $evaluacion = Auth::user()->cc) }}">
+                    href="{{ route('evaluations.show', $user_cc = Auth::user()->cc) }}">
                     <span data-feather="list"></span>
                     Lista de Evaluaciones
                 </a>

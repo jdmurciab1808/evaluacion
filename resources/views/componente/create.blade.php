@@ -1,14 +1,14 @@
-@extends('layouts.app', ['activePage' => 'listaEvaluaciones', 'titlePage' => __('Crear Evaluación')])
+@extends('layouts.app', ['activePage' => 'listacomponentees', 'titlePage' => __('Crear Evaluación')])
 @section('content')
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
     {{-- Header --}}
     <div
         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <img class="img-uaeos-login" src="{{ asset('img/uaeos-logo.png') }}" alt="Imagen Logo UAEOS">
-        <h1 class="h2">Crear Componentes de Evaluacion</h1>
+        <h1 class="h2">Crear Componentes de componente</h1>
     </div>
-    {{-- Formulario Crear Componentes de Evaluacion--}}
-    <div id="componentesEvaluacion">
+    {{-- Formulario Crear Componentes de componente--}}
+    <div id="componentescomponente">
         <form class="row g-3 needs-validation" novalidate method="POST" action="{{ route('components.store') }}">
             @csrf
             {{-- Firma --}}
@@ -37,28 +37,24 @@
             </div>
             {{-- Evidencia --}}
             <div class="col-md-4">
-                <label for="evidencia" class="form-label">Evidencias</label>
-                <div class="form-check pt-1 px-5">
-                    <input class="form-check-input" type="radio" name="evidencia" id="evidencia" required checked>
-                    <label class="form-check-label" for="flexRadioDefault1">
-                        Si
-                    </label>
-                </div>
+                <label for="evidencia" class="form-label">Evidencia</label>
+                <select class="form-select" name="evidencia" id="evidencia" required>
+                    <option selected value="Si">Si</option>
+                    <option selected value="No">No</option>
+                </select>
                 <div class="invalid-feedback">
-                    Por favor marque si cuenta con evidencias
+                    Por favor seleccione un segundo evaluador
                 </div>
             </div>
             {{-- Cronograma --}}
             <div class="col-md-4">
                 <label for="cronograma" class="form-label">Cronograma</label>
-                <div class="form-check pt-1 px-5">
-                    <input class="form-check-input" type="radio" name="cronograma" id="cronograma" required checked>
-                    <label class="form-check-label" for="flexRadioDefault1">
-                        Si
-                    </label>
-                </div>
+                <select class="form-select" name="cronograma" id="cronograma" required>
+                    <option selected value="Si">Si</option>
+                    <option selected value="No">No</option>
+                </select>
                 <div class="invalid-feedback">
-                    Por favor marque si esta sujeto a cronograma
+                    Por favor seleccione un segundo evaluador
                 </div>
             </div>
             {{-- Acrodado --}}
@@ -67,7 +63,7 @@
                 <div class="input-group flex-nowrap">
                     <span class="input-group-text" id="addon-wrapping">%</span>
                     <input type="number" class="form-control" placeholder="20" aria-label="meta"
-                        aria-describedby="addon-wrapping" id="acordado" name="acordado" required>
+                        aria-describedby="addon-wrapping" id="acordado" name="acordado" required min="20" max="100">
                 </div>
                 <div class="invalid-feedback">
                     Digite el % acordado para esta meta
@@ -79,7 +75,7 @@
                 <div class="input-group flex-nowrap">
                     <span class="input-group-text" id="addon-wrapping">%</span>
                     <input type="number" class="form-control" placeholder="20" aria-label="meta"
-                        aria-describedby="addon-wrapping" id="cumplido" name="cumplido" required>
+                        aria-describedby="addon-wrapping" id="cumplido" name="cumplido" required min="20" max="100">
                 </div>
                 <div class="invalid-feedback">
                     Digite el % acordado para esta meta
@@ -97,10 +93,47 @@
                     </div>
                 </div>
             </div> --}}
+            <input type="text" id="idevaluation" name="idevaluation" value="{{ $evaluacion }}" hidden>
             <div class="col-12">
-                <button type="submit" class="btn btn-primary" id="crearEvaluacion">Crear Componente</button>
+                <button type="submit" class="btn btn-primary" id="crearcomponente">Crear Componente</button>
             </div>
         </form>
+    </div>
+    {{-- Tabla de los componentes --}}
+    <div class="table-responsive">
+        <table id="userTable" class="table table-striped text-center" style="width:100%">
+            <thead class=" text-primary">
+                <tr>
+                    <th>Meta</th>
+                    <th>Funciones</th>
+                    <th>Evidencia</th>
+                    <th>Cronograma</th>
+                    <th>Cumplido</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse ($componentes as $componente)
+                <tr>
+                    <td>{{ $componente->meta }}</td>
+                    <td>{{ $componente->funciones }}</td>
+                    <td>{{ $componente->evidencia }}</td>
+                    <td>{{ $componente->cronograma }}</td>
+                    <td>{{ $componente->cumplido }}</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                            <button type="button" class="btn btn-danger">Borrar</button>
+                            <button type="button" class="btn btn-warning">Editar</button>
+                        </div>
+                    </td>
+                </tr>
+                @empty
+                <tr>
+                    <td colspan="6"> No hay datos</td>
+                </tr>
+                @endforelse
+            </tbody>
+        </table>
     </div>
 
 </main>

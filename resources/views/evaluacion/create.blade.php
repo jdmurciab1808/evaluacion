@@ -24,14 +24,11 @@
                 @csrf
                 {{-- Firma --}}
                 <div class="col-md-4">
-                    <label for="firmaEvaluado" class="form-label">Compromiso de acuerdo</label>
-                    <div class="form-check pt-1 px-5">
-                        <input class="form-check-input" type="radio" name="firmaEvaluado" id="firmaEvaluado" required
-                            checked>
-                        <label class="form-check-label" for="flexRadioDefault1">
-                            Si
-                        </label>
-                    </div>
+                    <label for="firmaEvaluado" class="form-label">Compromiso de Acuerdo</label>
+                    <select class="form-select" name="firmaEvaluado" id="firmaEvaluado" required>
+                        <option selected value="Si">Si</option>
+                        <option selected value="No">No</option>
+                    </select>
                     <div class="invalid-feedback">
                         Debe aceptar el compromiso para crear la evaluacion
                     </div>

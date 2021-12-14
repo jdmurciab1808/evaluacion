@@ -40,12 +40,16 @@
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                             <button type="button" class="btn btn-danger">Borrar</button>
                             <button type="button" class="btn btn-warning">Editar</button>
-                            <a href="{{ route('components.show', $user_cc = Auth::user()->cc) }}" type="button"
-                                class="btn btn-success">Componentes</a>
+                            <a href="{{ route('components.show', $evaluacion = $evaluacion->idevaluacion) }}"
+                                type="button" class="btn btn-success">Componentes</a>
                         </div>
                     </td>
                 </tr>
                 @empty
+                <tr>
+                    <td colspan="6"> No hay datos</td>
+
+                </tr>
                 @endforelse
             </tbody>
         </table>

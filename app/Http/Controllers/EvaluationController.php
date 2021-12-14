@@ -49,18 +49,13 @@ class EvaluationController extends Controller
     {
         // $fecha = date('Y-m-d');
         // return $request;
-        if ($request['firmaEvaluado'] == "on") {
 
-            $firmaEvaluado = "1";
-        } else {
-            $firmaEvaluado = "0";
-        }
         $user_cc = $request['users_cc'];
         Evaluation::create([
 
             'fechaIncio' => date('Y-m-d'),
             'estado' => 'Iniciada',
-            'firmaEvaluado' => $firmaEvaluado,
+            'firmaEvaluado' =>  $request['firmaEvaluado'],
             'ciudad' => $request['ciudad'],
             'evaluador_dos' => $request['segundoEvaluador'],
             'users_cc' => $request['users_cc'],
@@ -75,14 +70,14 @@ class EvaluationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($user_cc)
     {
 
-        // $evaluaciones = Evaluation::where('users_cc', $id)->with('user')->get();
+        // $evaluaciones = Evaluation::where('users_cc', $user_cc)->with('user')->get();
         // return $evaluaciones;
         return view('evaluacion.index', [
             'admins' => Admin::all(),
-            'evaluaciones' => Evaluation::where('users_cc', $id)->with('user')->get()
+            'evaluaciones' => Evaluation::where('users_cc', $user_cc)->with('user')->get()
         ]);
     }
 
