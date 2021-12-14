@@ -61,7 +61,7 @@ class EvaluationController extends Controller
             'users_cc' => $request['users_cc'],
 
         ]);
-        return redirect()->route('evaluations.show', $user_cc)->with('status', 'Se creo Evaluacion');
+        return redirect()->route('evaluations.show', $user_cc)->with('status', 'Se creo Evaluacion con exito!');
     }
 
     /**

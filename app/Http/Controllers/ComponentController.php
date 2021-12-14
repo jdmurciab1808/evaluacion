@@ -53,7 +53,7 @@ class ComponentController extends Controller
             'evaluations_idevaluacion' => $request['idevaluation'],
 
         ]);
-        return redirect()->route('components.show', $evaluation)->with('status', 'Se creo Evaluacion');
+        return redirect()->route('components.show', $evaluation)->with('status', 'Se creo component con exito!');
     }
 
     /**

@@ -99,6 +99,8 @@
             </div>
         </form>
     </div>
+    {{-- Alerta --}}
+    @include('partials.session-status')
     {{-- Tabla de los componentes --}}
     <div class="table-responsive">
         <table id="userTable" class="table table-striped text-center" style="width:100%">
@@ -135,6 +137,5 @@
             </tbody>
         </table>
     </div>
-
 </main>
 @endsection

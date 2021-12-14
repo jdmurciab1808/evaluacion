@@ -16,6 +16,9 @@
             </button>
         </div>
     </div>
+    {{-- Alerta --}}
+    @include('partials.session-status')
+    {{-- Tabla de evaluaciones --}}
     <div class="table-responsive">
         <table id="userTable" class="table table-striped text-center" style="width:100%">
             <thead class=" text-primary">
@@ -48,7 +51,6 @@
                 @empty
                 <tr>
                     <td colspan="6"> No hay datos</td>
-
                 </tr>
                 @endforelse
             </tbody>
